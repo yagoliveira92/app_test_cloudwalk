@@ -1,0 +1,46 @@
+{
+  "coord": {
+    "lon": -1.026,
+    "lat": 52.0922
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 11.49,
+    "feels_like": 10.89,
+    "temp_min": 10.08,
+    "temp_max": 12.81,
+    "pressure": 981,
+    "humidity": 84,
+    "sea_level": 981,
+    "grnd_level": 967
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4.88,
+    "deg": 260,
+    "gust": 7.45
+  },
+  "clouds": {
+    "all": 51
+  },
+  "dt": 1699020633,
+  "sys": {
+    "type": 2,
+    "id": 2026769,
+    "country": "GB",
+    "sunrise": 1698994919,
+    "sunset": 1699029196
+  },
+  "timezone": 0,
+  "id": 2637827,
+  "name": "Silverstone",
+  "cod": 200
+}
