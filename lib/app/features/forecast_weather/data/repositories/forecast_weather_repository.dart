@@ -31,13 +31,19 @@ class ForecastWeatherRepository implements IForecastWeatherRepository {
           return (error: ConnectionFailure(), forecastWeather: forecastWeather);
         }
         return (
-          error: Failure(),
+          error: GeneralFailure(),
           forecastWeather: const ForecastWeatherEntity()
         );
       }
-      return (error: Failure(), forecastWeather: const ForecastWeatherEntity());
+      return (
+        error: GeneralFailure(),
+        forecastWeather: const ForecastWeatherEntity()
+      );
     } catch (e) {
-      return (error: Failure(), forecastWeather: const ForecastWeatherEntity());
+      return (
+        error: GeneralFailure(),
+        forecastWeather: const ForecastWeatherEntity()
+      );
     }
   }
 }

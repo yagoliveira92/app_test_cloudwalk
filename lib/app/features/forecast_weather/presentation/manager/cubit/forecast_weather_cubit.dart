@@ -15,7 +15,7 @@ class ForecastWeatherCubit extends Cubit<ForecastWeatherState> {
   Future<void> getForecast({required String city}) async {
     emit(ForecastWeatherLoading());
     final result = await getForecastWeatherUseCase(city);
-    if (result.error != NoFailure()) {
+    if (result.error is NoFailure) {
       emit(ForecastWeatherSuccess(
           forecastWeatherEntity: result.forecastWeather));
     } else {
