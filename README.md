@@ -18,7 +18,8 @@ To be able to properly execute the project, you must follow some steps:
 1. Download all packages and dependencies:
     - `flutter pub get`
 2. Generate and insert `.env` in the root of project. The name of the keys can be found in file `.env-config`;
-3. Enjoy!
+3. Add a firebase project for crashlytics and errors monitorings. See [this documentation](https://firebase.google.com/docs/flutter/setup?hl=pt-br&platform=android).
+4. Enjoy!
 
 ## Packages and Dependencies
 
