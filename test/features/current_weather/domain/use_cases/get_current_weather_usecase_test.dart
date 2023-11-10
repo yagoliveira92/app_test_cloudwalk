@@ -14,6 +14,9 @@ void main() {
 
   final listCurrent = <CurrentWeatherEntity>[
     const CurrentWeatherEntity(),
+    const CurrentWeatherEntity(),
+    const CurrentWeatherEntity(),
+    const CurrentWeatherEntity(),
   ];
 
   setUp(() {
@@ -28,25 +31,23 @@ void main() {
             (currentWeather: const CurrentWeatherEntity(), error: NoFailure()),
       );
       final result = await useCase();
-      expect(result,
-          isA<({Failure error, CurrentWeatherEntity currentWeather})>());
-      verify(() => repository.getCurrentWeather(city: any(named: 'city')));
-      verifyNoMoreInteractions(repository);
+      expect(result.currentWeatherList, listCurrent);
+      expect(result.error, isA<NoFailure>());
+      expect(result.currentWeatherList.length, 4);
     });
 
-    test('Falha ao obter os dados do Dashboard', () async {
+    test('Falha ao obter os dados do Current Weather', () async {
       when(() => repository.getCurrentWeather(city: any(named: 'city')))
           .thenAnswer(
-        (_) async =>
-            (currentWeather: const CurrentWeatherEntity(), error: Failure()),
+        (_) async => (
+          currentWeather: const CurrentWeatherEntity(),
+          error: GeneralFailure()
+        ),
       );
       final result = await useCase();
-      expect(result,
-          isA<({Failure error, CurrentWeatherEntity currentWeather})>());
-      verify(() => repository.getCurrentWeather(city: any(named: 'city')));
-      verifyNoMoreInteractions(repository);
+      expect(result.currentWeatherList, <CurrentWeatherEntity>[]);
+      expect(result.error, isA<GeneralFailure>());
+      expect(result.currentWeatherList.length, 0);
     });
-
-    test('Deve retornar o enum correto na bateria ', () async {});
   });
 }

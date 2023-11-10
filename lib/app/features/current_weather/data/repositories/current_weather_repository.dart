@@ -30,11 +30,20 @@ class CurrentWeatherRepository implements ICurrentWeatherRepository {
           final currentWeather = CurrentWeatherModel.fromJson(localData.data);
           return (error: ConnectionFailure(), currentWeather: currentWeather);
         }
-        return (error: Failure(), currentWeather: const CurrentWeatherEntity());
+        return (
+          error: GeneralFailure(),
+          currentWeather: const CurrentWeatherEntity()
+        );
       }
-      return (error: Failure(), currentWeather: const CurrentWeatherEntity());
+      return (
+        error: GeneralFailure(),
+        currentWeather: const CurrentWeatherEntity()
+      );
     } catch (e) {
-      return (error: Failure(), currentWeather: const CurrentWeatherEntity());
+      return (
+        error: GeneralFailure(),
+        currentWeather: const CurrentWeatherEntity()
+      );
     }
   }
 }

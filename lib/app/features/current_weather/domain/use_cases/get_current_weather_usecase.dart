@@ -14,30 +14,30 @@ class GetCurrentWeatherUseCase {
     final resultSilverstone = await repository.getCurrentWeather(
       city: CitiesConcertWeatherEnum.silverstone.getCity,
     );
-    if (resultSilverstone.error != Failure()) {
+    if (resultSilverstone.error is! GeneralFailure) {
       currentWeatherList.add(resultSilverstone.currentWeather);
     }
     final resultSaoPaulo = await repository.getCurrentWeather(
       city: CitiesConcertWeatherEnum.saoPaulo.getCity,
     );
-    if (resultSaoPaulo.error != Failure()) {
+    if (resultSaoPaulo.error is! GeneralFailure) {
       currentWeatherList.add(resultSaoPaulo.currentWeather);
     }
     final resultMelbourne = await repository.getCurrentWeather(
       city: CitiesConcertWeatherEnum.melbourne.getCity,
     );
-    if (resultMelbourne.error != Failure()) {
+    if (resultMelbourne.error is! GeneralFailure) {
       currentWeatherList.add(resultMelbourne.currentWeather);
     }
     final resultMonteCarlo = await repository.getCurrentWeather(
       city: CitiesConcertWeatherEnum.monteCarlo.getCity,
     );
-    if (resultMonteCarlo.error != Failure()) {
+    if (resultMonteCarlo.error is! GeneralFailure) {
       currentWeatherList.add(resultMonteCarlo.currentWeather);
     }
 
     if (currentWeatherList.isEmpty) {
-      return (error: Failure(), currentWeatherList: currentWeatherList);
+      return (error: GeneralFailure(), currentWeatherList: currentWeatherList);
     }
     return (error: NoFailure(), currentWeatherList: currentWeatherList);
   }

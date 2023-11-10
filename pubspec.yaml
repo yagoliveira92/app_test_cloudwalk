@@ -50,6 +50,7 @@ dependencies:
   cached_network_image: ^3.3.0
   intl: ^0.18.1
   mocktail: ^1.0.1
+  bloc_test: ^9.1.5
 
 dev_dependencies:
   flutter_test:
