@@ -65,8 +65,6 @@ void main() {
       "cod": 200
     };
 
-    List<CurrentWeatherEntity> currentWeatherList = [];
-
     test('deve retornar sucesso na obtenção dos dados remoto', () async {
       when(() =>
               mockRemoteDataSource.getCurrentWeather(city: any(named: 'city')))
